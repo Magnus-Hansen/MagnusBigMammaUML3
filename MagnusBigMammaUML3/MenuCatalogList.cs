@@ -1,62 +1,77 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MagnusBigMammaUML3
 {
-    public class MenuCatalog : IMenuCatalog
+    public class MenuCatalogList : IMenuCatalog
     {
         public int Count { get; set; }
 
-        public Dictionary<int, IMenuItem> _iMenuItem = new Dictionary<int, IMenuItem>();
+        public List<IMenuItem> _iMenuItem = new List<IMenuItem>();
 
         public void Add(IMenuItem aMenuItem)
         {
-            if (!_iMenuItem.ContainsKey(aMenuItem.Number))
-                _iMenuItem.Add(aMenuItem.Number, aMenuItem);
+            bool itemNotExist = true;
+            foreach (IMenuItem item in _iMenuItem)
+            {
+                if (aMenuItem.Number == item.Number)
+                { 
+                    itemNotExist = false;
+                }
+            }
+            if (itemNotExist)
+                _iMenuItem.Add(aMenuItem);
             else throw new MenuItemNumberExist($"number {aMenuItem.Number} already exist");
+
         }
         public IMenuItem Search(int number)
         {
-            if (_iMenuItem.ContainsKey(number))
-                return _iMenuItem[number];
+            foreach (IMenuItem item in _iMenuItem)
+                if (item.Number == number)
+                    return item;
             return null;
         }
         public void Delete(int number)
         {
-            if (_iMenuItem.ContainsKey(number))
-                _iMenuItem.Remove(number);
+            foreach (IMenuItem item in _iMenuItem)
+                if (item.Number == number)
+                {
+                    _iMenuItem.Remove(item);
+                    break;
+                }
+
         }
         public void PrintPizzasMenu()
         {
-            foreach (IMenuItem aMenuItem in _iMenuItem.Values)
+            foreach (IMenuItem aMenuItem in _iMenuItem)
                 if (aMenuItem.Type == MenuType.Pizza)
                     Console.WriteLine(aMenuItem.PrintInfo());
         }
         public void PrintBeveragesMenu()
         {
-            foreach (IMenuItem aMenuItem in _iMenuItem.Values)
+            foreach (IMenuItem aMenuItem in _iMenuItem)
                 if (aMenuItem.Type == MenuType.SoftDrink)
                     Console.WriteLine(aMenuItem.PrintInfo());
         }
         public void PrintToppingsMenu()
         {
-            foreach (IMenuItem aMenuItem in _iMenuItem.Values)
+            foreach (IMenuItem aMenuItem in _iMenuItem)
                 if (aMenuItem.Type == MenuType.Topping)
                     Console.WriteLine(aMenuItem.PrintInfo());
         }
         public void Update(int number, IMenuItem theMenuItem)
         {
-            if (_iMenuItem.ContainsKey(number))
-                _iMenuItem[number] = theMenuItem;
+            foreach (IMenuItem item in _iMenuItem)
+                if (item.Number == number)
+                    _iMenuItem[number] = theMenuItem;
         }
         public List<IMenuItem> FindAllVegan(MenuType type)
         {
             List<IMenuItem> list = new List<IMenuItem>();
-            foreach (IMenuItem aMenuItem in _iMenuItem.Values)
+            foreach (IMenuItem aMenuItem in _iMenuItem)
                 if (aMenuItem.Type == type)
                 {
                     if (aMenuItem.IsVegan)
@@ -69,7 +84,7 @@ namespace MagnusBigMammaUML3
         public List<IMenuItem> FindAllOrganic(MenuType type)
         {
             List<IMenuItem> list = new List<IMenuItem>();
-            foreach (IMenuItem aMenuItem in _iMenuItem.Values)
+            foreach (IMenuItem aMenuItem in _iMenuItem)
                 if (aMenuItem.Type == type)
                 {
                     if (aMenuItem.IsOrganic)
@@ -83,7 +98,7 @@ namespace MagnusBigMammaUML3
         {
             double mostExpensivePrice = 0.0;
             IMenuItem mostExpensiveMenuItem = null;
-            foreach (IMenuItem aMenuItem in _iMenuItem.Values)
+            foreach (IMenuItem aMenuItem in _iMenuItem)
             {
                 if (aMenuItem.Price > mostExpensivePrice)
                 {

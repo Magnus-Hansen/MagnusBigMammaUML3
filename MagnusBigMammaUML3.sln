@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagnusBigMammaUML3", "MagnusBigMammaUML3\MagnusBigMammaUML3.csproj", "{72D92CE5-E846-42D9-88B6-FB0E2B37404E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagnusBigMammaUML3", "MagnusBigMammaUML3\MagnusBigMammaUML3.csproj", "{72D92CE5-E846-42D9-88B6-FB0E2B37404E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuCatalogTestProject", "MenuCatalogTestProject\MenuCatalogTestProject.csproj", "{EB9A8A50-82BF-41F3-BCE2-D203F641B962}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{72D92CE5-E846-42D9-88B6-FB0E2B37404E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72D92CE5-E846-42D9-88B6-FB0E2B37404E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72D92CE5-E846-42D9-88B6-FB0E2B37404E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB9A8A50-82BF-41F3-BCE2-D203F641B962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB9A8A50-82BF-41F3-BCE2-D203F641B962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB9A8A50-82BF-41F3-BCE2-D203F641B962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB9A8A50-82BF-41F3-BCE2-D203F641B962}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
