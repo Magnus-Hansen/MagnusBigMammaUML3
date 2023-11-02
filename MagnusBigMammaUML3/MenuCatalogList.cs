@@ -18,12 +18,13 @@ namespace MagnusBigMammaUML3
             foreach (IMenuItem item in _iMenuItem)
             {
                 if (aMenuItem.Number == item.Number)
-                { 
                     itemNotExist = false;
-                }
             }
             if (itemNotExist)
+            {
                 _iMenuItem.Add(aMenuItem);
+                Count++;
+            }
             else throw new MenuItemNumberExist($"number {aMenuItem.Number} already exist");
 
         }
@@ -40,6 +41,7 @@ namespace MagnusBigMammaUML3
                 if (item.Number == number)
                 {
                     _iMenuItem.Remove(item);
+                    Count--;
                     break;
                 }
 
@@ -48,19 +50,19 @@ namespace MagnusBigMammaUML3
         {
             foreach (IMenuItem aMenuItem in _iMenuItem)
                 if (aMenuItem.Type == MenuType.Pizza)
-                    Console.WriteLine(aMenuItem.PrintInfo());
+                    Console.WriteLine(aMenuItem.ToString());
         }
         public void PrintBeveragesMenu()
         {
             foreach (IMenuItem aMenuItem in _iMenuItem)
                 if (aMenuItem.Type == MenuType.SoftDrink)
-                    Console.WriteLine(aMenuItem.PrintInfo());
+                    Console.WriteLine(aMenuItem.ToString());
         }
         public void PrintToppingsMenu()
         {
             foreach (IMenuItem aMenuItem in _iMenuItem)
                 if (aMenuItem.Type == MenuType.Topping)
-                    Console.WriteLine(aMenuItem.PrintInfo());
+                    Console.WriteLine(aMenuItem.ToString());
         }
         public void Update(int number, IMenuItem theMenuItem)
         {

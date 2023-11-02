@@ -13,9 +13,9 @@ namespace MagnusBigMammaUML3
         {
             Alcohol = alcohol;
         }
-        public override string PrintInfo()
+        public override string ToString()
         {
-            return $"{base.PrintInfo()} - Alcohol: {Alcohol}";
+            return $"{base.ToString()} - Alcohol: {Alcohol}";
         }
     }
 }

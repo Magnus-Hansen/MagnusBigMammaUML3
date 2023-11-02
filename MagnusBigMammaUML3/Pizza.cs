@@ -13,9 +13,9 @@ namespace MagnusBigMammaUML3
         {
             DeepPan = deepPan;
         }
-        public override string PrintInfo()
+        public override string ToString()
         {
-            return $"{base.PrintInfo()} - Deepan: {DeepPan}";
+            return $"{base.ToString()} - Deepan: {DeepPan}";
         }
     }
 }
