@@ -13,8 +13,8 @@ namespace MenuCatalogTestProject
         IMenuCatalog menuCatalog = new MenuCatalogList();
         public void Setup()
         {
-            Pizza pizza = new Pizza(1, "shinji", "just like me fr", 69, MenuType.Pizza, true, true, false);
-            Beverage beverage = new Beverage(2, "UwU", "pounces >w< on you", 40, MenuType.SoftDrink, true, true, true);
+            Pizza pizza = new Pizza(1, "Margherita", "Tomat & ost", 69, MenuType.Pizza, true, true, false);
+            Beverage beverage = new Beverage(2, "Vand", "Lige fra hanen", 40, MenuType.SoftDrink, true, true, true);
             menuCatalog.Add(pizza);
             menuCatalog.Add(beverage);
         }
